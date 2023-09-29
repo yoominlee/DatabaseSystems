@@ -14,6 +14,10 @@
 - Ubuntu 22.04 image file (.iso)
     - https://releases.ubuntu.com/22.04/
 
+> terminal opening error   
+> (Vertualbox 'Unattended Install' related problem)
+> 
+
 ### Installing PostgreSQL
 
 #### Update registered packaging lists
@@ -22,7 +26,11 @@ $ sudo apt-get update
 ```
 
 #### PostgreSQL version upgrade
-
+```
+$ sudosh-c 'echo "deb http://apt.postgresql.org/pub/repos/apt $(lsb_release-cs)-pgdgmain" > /etc/apt/sources.list.d/pgdg.list
+$ wget--quiet -O -https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudoapt-key add --
+$ sudo apt update
+```
 
 
 
