@@ -124,3 +124,7 @@ yoomin=# exit
 ```
 
 - yoomin is name for ubuntu user, postgreSQL user and database in postgreSQL
+
+
+main source:   
+[2023-1 HYU DatabaseSystem lecture - Insoon Jo]
