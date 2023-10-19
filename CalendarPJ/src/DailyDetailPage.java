@@ -1,4 +1,6 @@
 import javax.swing.*;
+import javax.swing.border.Border;
+
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -36,12 +38,17 @@ public class DailyDetailPage extends JFrame {
         for (UserEventDetail detail : userEventDetails) {
             dailyDetailsPanel.add(detail);
         }
+
+        JButton monthly = new JButton("Go back to monthly calendar");
+        monthly.setBounds(250, 300, 150, 30);
+        dailyDetailsPanel.add(monthly);
     }
 
     // Custom component for user-event detail
     private class UserEventDetail extends JPanel {
         public UserEventDetail(String userInitial, String eventTime, String eventTitle) {
-            setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
+            BoxLayout eachUserBox = new BoxLayout(this, BoxLayout.X_AXIS);
+            setLayout(eachUserBox);
             setAlignmentX(Component.LEFT_ALIGNMENT);
 
             // User initial inside a circle
@@ -59,18 +66,27 @@ public class DailyDetailPage extends JFrame {
             CircularButton circularButton = new CircularButton(userInitial);
             add(circularButton);
 
+            
 
+            JPanel rightText = new JPanel();
+            rightText.setLayout(new BoxLayout(rightText, BoxLayout.Y_AXIS));
 
+            int marginSize = 10;
+            // EmptyBorder(bottom, left, right, top); 
+            Border margin = BorderFactory.createEmptyBorder(marginSize, marginSize, 0, 0);
+            
             // Time of the event
             JLabel timeLabel = new JLabel(eventTime);
-            add(timeLabel);
+            timeLabel.setBorder(margin);
+            rightText.add(timeLabel);
 
             // Title of the event
             JLabel titleLabel = new JLabel(eventTitle);
-            titleLabel.setFont(new Font("Arial", Font.BOLD, 20)); // Adjust font size
-            add(titleLabel);
+            titleLabel.setFont(new Font("Arial", Font.BOLD, 17)); // Adjust font size
+            titleLabel.setBorder(margin);
+            rightText.add(titleLabel);
 
-
+            add(rightText);
 
         }
     }

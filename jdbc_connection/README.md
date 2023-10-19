@@ -36,7 +36,7 @@ $ sudo apt-get install postgresql-14 postgresql-client-14
 #### Execute PostgreSQL
 Login with postgres account
 ```
-$ sudo –i –u postgres
+$ sudo -i -u postgres
 ```
 Execute psql terminal
 ```
@@ -72,7 +72,7 @@ yoomin=# ALTER USER yoomin1 WITH PASSWORD '****';
 
 #### Install JDK for Ubuntu server
 ```
-$ sudoapt install openjdk-8-jdk-headless
+$ sudo apt install openjdk-8-jdk-headless
 ```
 #### Download jdbc jar file
 ```
