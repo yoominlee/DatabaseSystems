@@ -31,7 +31,7 @@ $ sudo apt update
 ```
 #### Install PostgreSQL
 ```
-$ sudoapt-get install postgresql-14 postgresql-client-14
+$ sudo apt-get install postgresql-14 postgresql-client-14
 ```
 #### Execute PostgreSQL
 Login with postgres account
