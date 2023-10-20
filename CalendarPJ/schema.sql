@@ -1,0 +1,38 @@
+CREATE TABLE User (
+    UserID SERIAL PRIMARY KEY,
+    Name VARCHAR(100) NOT NULL,
+    Birthday DATE NOT NULL,
+    Password VARCHAR(100) NOT NULL,
+    Email VARCHAR(100) UNIQUE NOT NULL,
+    UserColor VARCHAR(7)
+);
+
+
+CREATE TABLE Event (
+    EventID SERIAL PRIMARY KEY,
+    FOREIGN KEY UserID INTEGER REFERENCES User(UserID),
+    EventName VARCHAR(255) NOT NULL,
+    Description TEXT,
+    AllDay BOOLEAN DEFAULT FALSE,
+    Imporance INT DEFAULT 3,
+    --most imp 1, least 3
+    Private BOOLEAN DEFAULT FALSE,
+    StartTime TIME WITH TIME ZONE,
+    -- (including date and time)
+    EndTime TIME WITH TIME ZONE,
+    Reminder BOOLEAN DEFAULT FALSE
+);
+
+
+CREATE TABLE JoinRequestMember (
+    RequestID SERIAL PRIMARY KEY,
+    FOREIGN KEY EventID INTEGER REFERENCES Event(EventID),
+    FOREIGN KEY UserID INTEGER REFERENCES User(UserID)
+);
+
+
+CREATE TABLE JoinResponseMember (
+    ResponseID SERIAL PRIMARY KEY,
+    FOREIGN KEY EventID INTEGER REFERENCES Event(EventID),
+    FOREIGN KEY UserID INTEGER REFERENCES User(UserID)
+);
