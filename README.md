@@ -20,6 +20,6 @@ Comment out the following line:
 reference : https://askubuntu.com/questions/695560/assistive-technology-not-found-awterror
 
 ## Second sub-project
-: schema & UI   
+: Database schema & Calendar GUI   
 (related files: /CalendarPJ/*)
 
