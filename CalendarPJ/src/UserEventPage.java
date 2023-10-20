@@ -5,7 +5,7 @@ public class UserEventPage extends JFrame {
 
     public UserEventPage() {
         setTitle("User's Event Page");
-        setPreferredSize(new Dimension(840, 450));
+        setPreferredSize(new Dimension(1000, 600));
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(new BorderLayout());
 

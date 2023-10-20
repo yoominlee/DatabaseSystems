@@ -5,7 +5,6 @@ import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
-
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.geom.Ellipse2D;
@@ -14,13 +13,18 @@ public class DailyDetailPage extends JFrame {
 
     public DailyDetailPage() {
         setTitle("Daily Detail Page");
-        setSize(840, 450);
+        setSize(1000,600);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
 
+        
+        
         // Create a panel to hold the daily details
         JPanel dailyDetailsPanel = new JPanel();
         dailyDetailsPanel.setLayout(new BoxLayout(dailyDetailsPanel, BoxLayout.Y_AXIS));
+        
+        dailyDetailsPanel.setBorder(BorderFactory.createEmptyBorder(70, 30, 30, 30));
+        
         add(dailyDetailsPanel);
 
         // Date at the top
@@ -30,9 +34,12 @@ public class DailyDetailPage extends JFrame {
 
         // Create a list of user-event details
         List<UserEventDetail> userEventDetails = new ArrayList<>();
-        userEventDetails.add(new UserEventDetail("Y", "15:00~17:00", "Meeting 1"));
         userEventDetails.add(new UserEventDetail("B", "10:30~12:00", "Presentation"));
-        userEventDetails.add(new UserEventDetail("H", "14:00~15:30", "Lunch"));
+        userEventDetails.add(new UserEventDetail("H", "14:00~15:30", "Lunch meeting"));
+        userEventDetails.add(new UserEventDetail("Y", "15:00~17:00", "Meeting 1"));
+
+        userEventDetails.add(new UserEventDetail("H", "18:00~19:00", "Dinner meeting"));
+        userEventDetails.add(new UserEventDetail("Y", "19:00~20:00", "Meeting 2"));
 
         // Add user-event details to the panel
         for (UserEventDetail detail : userEventDetails) {
@@ -40,7 +47,7 @@ public class DailyDetailPage extends JFrame {
         }
 
         JButton monthly = new JButton("Go back to monthly calendar");
-        monthly.setBounds(250, 300, 150, 30);
+        monthly.setBounds(250, 800, 150, 30);
         dailyDetailsPanel.add(monthly);
     }
 
@@ -66,15 +73,13 @@ public class DailyDetailPage extends JFrame {
             CircularButton circularButton = new CircularButton(userInitial);
             add(circularButton);
 
-            
-
             JPanel rightText = new JPanel();
             rightText.setLayout(new BoxLayout(rightText, BoxLayout.Y_AXIS));
 
             int marginSize = 10;
             // EmptyBorder(bottom, left, right, top); 
             Border margin = BorderFactory.createEmptyBorder(marginSize, marginSize, 0, 0);
-            
+
             // Time of the event
             JLabel timeLabel = new JLabel(eventTime);
             timeLabel.setBorder(margin);
@@ -97,12 +102,12 @@ public class DailyDetailPage extends JFrame {
             setContentAreaFilled(false); // Make the button transparent
             // setFocusPainted(false); // Remove focus indicator
             setBorderPainted(false); // Remove border
-    
+
             // Set a custom shape for the button
             Dimension size = getPreferredSize();
             size.width = size.height = 20;//Math.max(size.width, size.height);
             setPreferredSize(size);
-    
+
             // Add an action listener for the button
             addActionListener(new ActionListener() {
                 @Override
@@ -112,7 +117,7 @@ public class DailyDetailPage extends JFrame {
                 }
             });
         }
-    
+
         @Override
         protected void paintComponent(Graphics g) {
             if (getModel().isArmed()) {
@@ -120,11 +125,11 @@ public class DailyDetailPage extends JFrame {
             } else {
                 g.setColor(Color.lightGray);
             }
-    
+
             // Draw a circular shape
             Graphics2D g2 = (Graphics2D) g;
             g2.fill(new Ellipse2D.Double(0, 0, getSize().width - 1, getSize().height - 1));
-    
+
             super.paintComponent(g);
         }
     }
@@ -136,7 +141,3 @@ public class DailyDetailPage extends JFrame {
         });
     }
 }
-
-
-
-

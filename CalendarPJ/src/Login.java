@@ -5,7 +5,7 @@ import javax.swing.*;
 public class Login extends JFrame {
     public Login(){
         setTitle("Login Page");
-        setSize(840,450);
+        setSize(1000,600);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
         setLocationRelativeTo(null);
@@ -15,31 +15,31 @@ public class Login extends JFrame {
         add(panel);
 
         JTextField usernameField = new JTextField();
-        usernameField.setBounds(300,100,200,25);
+        usernameField.setBounds(450,200,200,25);
         usernameField.setBorder(BorderFactory.createLineBorder(null));
         panel.add(usernameField);
 
         JTextField passwordField = new JTextField();
-        passwordField.setBounds(300,150,200,25);
+        passwordField.setBounds(450,250,200,25);
         usernameField.setBorder(BorderFactory.createLineBorder(null));
         panel.add(passwordField);
 
 
         JLabel usernameLable = new JLabel("Username:");
-        usernameLable.setBounds(200,100,100,25);
+        usernameLable.setBounds(350,200,100,25);
         panel.add(usernameLable);
 
         JLabel passwordLable = new JLabel("Password:");
-        passwordLable.setBounds(200,150,100,25);
+        passwordLable.setBounds(350,250,100,25);
         panel.add(passwordLable);
         
         
         JButton loginButton = new JButton("Login");
-        loginButton.setBounds(250, 200, 100, 30);
+        loginButton.setBounds(400, 300, 100, 30);
         panel.add(loginButton);
 
         JButton joinButton = new JButton("Join");
-        joinButton.setBounds(400, 200, 100, 30);
+        joinButton.setBounds(550, 300, 100, 30);
         panel.add(joinButton);
 
     }
